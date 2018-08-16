@@ -1,0 +1,44 @@
+<div class="title" [class.clicked]='!clickedNews' [class.unclicked]='clickedNews' >
+  <a (click)='onClick(vidu)' >
+    <div class="ui segment ">
+      {{vidu.id}}
+      <br>
+      {{vidu.title}}
+    </div>
+  </a>
+  <a href="">
+    <div class="ui segment">
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas, repudiandae pariatur dolor ad accusamus obcaecati illo id libero, quisquam nam magnam aliquam! Quaerat magni corporis vel ex quisquam, dolores aliquam?
+    </div>
+  </a>
+  <a href="">
+    <div class="ui segment">
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas, repudiandae pariatur dolor ad accusamus obcaecati illo id libero, quisquam nam magnam aliquam! Quaerat magni corporis vel ex quisquam, dolores aliquam?
+    </div>
+  </a>
+  <a href="">
+    <div class="ui segment">
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas, repudiandae pariatur dolor ad accusamus obcaecati illo id libero, quisquam nam magnam aliquam! Quaerat magni corporis vel ex quisquam, dolores aliquam?
+    </div>
+  </a>
+  <a href="">
+    <div class="ui segment">
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas, repudiandae pariatur dolor ad accusamus obcaecati illo id libero, quisquam nam magnam aliquam! Quaerat magni corporis vel ex quisquam, dolores aliquam?
+    </div>
+  </a>
+</div>
+
+
+<div class="content" [class.clicked]='clickedNews' [class.unclicked]='!clickedNews'>
+  <div class="">
+    <button class="ui button" (click)='back()' >Back</button>
+  </div>
+  <div>
+    <a>
+      
+    </a>
+  </div>
+  <div>
+    <app-read [news] = 'aNews'></app-read>
+  </div>
+</div>

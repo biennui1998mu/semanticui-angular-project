@@ -1,0 +1,24 @@
+.title > a{
+    cursor: pointer;
+}
+
+.title{
+    display: block;
+}
+
+.content{
+    display: none;
+}
+
+.clicked{
+    display: block !important;
+}
+
+.unclicked{
+    display: none !important;
+}
+.div-button{
+    height: 2%;
+    width: 5%;
+}
+

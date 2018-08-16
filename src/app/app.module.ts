@@ -5,15 +5,23 @@ import { AppComponent } from './app.component';
 import { ExampleService } from './Services/example.service';
 import { HomepageComponent } from './homepage/homepage.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { ListProComponent } from './list-pro/list-pro.component';
+import { AppRoutingModule } from './/app-routing.module';
+import { NewsComponent } from './news/news.component';
+import { ReadComponent } from './read/read.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomepageComponent,
-    NavbarComponent
+    NavbarComponent,
+    ListProComponent,
+    NewsComponent,
+    ReadComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [
     ExampleService

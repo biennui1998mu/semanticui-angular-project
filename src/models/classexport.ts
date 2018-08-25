@@ -7,9 +7,10 @@ export class Maps{
     img?: string[];
 };
 export class teams{
-    id:number;
+    id: number;
     name: string;
-    
+    country: string;
+    world_score: number;
     // rank:
 };
 export class players{
@@ -25,4 +26,11 @@ export class updates{
     content: string[];
     updated_at: string;
     img?:string;
+};
+export class matches{
+    id: number;
+    team1: number;
+    team2: number;
+    time: Date;
+    status: number;
 }

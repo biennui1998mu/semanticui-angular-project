@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { fakemaps } from "../../models/fakemaps";
 import { Maps } from "../../models/classexport";
+import { NewsServicesService } from '../../services/news-services.service';
 
 @Component({
   selector: 'app-map',
@@ -8,10 +8,18 @@ import { Maps } from "../../models/classexport";
   styleUrls: ['./map.component.css']
 })
 export class MapComponent implements OnInit {
-  maps = fakemaps;
-  constructor() { }
+
+  listMaps:Maps[] = [];
+
+  constructor(private newsServices:NewsServicesService) { 
+  }
 
   ngOnInit() {
+    this.newsServices.getAllMap().subscribe(
+      listMaps => {
+        this.listMaps = listMaps;
+      }
+    )
   }
 
   selectmap: Maps=null;

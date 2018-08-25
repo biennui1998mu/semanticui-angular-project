@@ -6,15 +6,4 @@
     display: block;
 }
 
-.content{
-    display: none;
-}
-
-.clicked{
-    display: block !important;
-}
-
-.unclicked{
-    display: none !important;
-}
 

@@ -8,26 +8,30 @@ import { NewsServicesService } from '../../services/news-services.service';
   styleUrls: ['./updates.component.css']
 })
 export class UpdatesComponent implements OnInit {
-  @Input() aupdates:updates = null;
-  @Input() clickedupdates = false;
+
   @Output() clickedupdatesOut = new EventEmitter<updates>();
   
   listUpdates:updates[] = [];
   constructor(
     private newsServices:NewsServicesService) { }
+
+  updates:updates = null;
   
   ngOnInit() {
-    this.listUpdates = this.newsServices.getAllUpdates();
+    this.newsServices.getAllUpdates().subscribe(
+      listUpdates => {
+        console.log(listUpdates);
+        this.listUpdates = listUpdates;
+      }
+    )
   }
   onClick(updates){
-    this.aupdates = updates;
-    this.clickedupdates = true;
+    this.updates = updates;
     this.clickedupdatesOut.emit(updates);
   }
 
   back(){
-    this.aupdates = null;
-    this.clickedupdates = false;
+    this.updates = null;
     this.clickedupdatesOut.emit(null);
   }
 

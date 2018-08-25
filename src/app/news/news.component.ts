@@ -10,7 +10,6 @@ import { NewsServicesService } from '../../services/news-services.service';
 export class NewsComponent implements OnInit {
 
   @Input() aNews:News = null;
-  @Input() clickedNews = false;
   @Output() clickedNewsOut = new EventEmitter<News>();
   
   listNews:News[] = [];
@@ -20,18 +19,20 @@ export class NewsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.listNews = this.newsServices.getAllNews();
+    this.newsServices.getAllNews().subscribe(
+      listNews => {
+        this.listNews = listNews;
+      }
+    )
   }
 
   onClick(news){
     this.aNews = news;
-    this.clickedNews = true;
     this.clickedNewsOut.emit(news);
   }
 
   back(){
     this.aNews = null;
-    this.clickedNews = false;
     this.clickedNewsOut.emit(null);
   }
 

@@ -1,0 +1,62 @@
+.coverteam{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+}
+
+.coverteam > div{
+    background-color: rgba(255, 255, 255, 0.850);
+}
+
+.title-contain{
+    display: grid !important;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: 1fr;
+    grid-gap: 1em;
+    align-content: center;
+}
+
+.title-contain > .logoBlock{
+    display: grid !important;
+    grid-template-columns: repeat(2, auto);
+    grid-gap: 1em;
+    justify-self: start;
+    align-self: center;
+}
+.customheader {
+    font-size: 1.5em;
+    cursor: default !important;
+}
+
+.logoBlock > .logostart{
+    justify-self: start;
+}
+.logoBlock > .logoend{
+    justify-self: end;
+}
+
+.title-contain > .socialBlock{
+    justify-self: end;
+    align-self: center;
+}
+
+.title-contain > .infoblock{
+   justify-self: center;
+   align-self: center;
+
+}
+
+@media only screen and (max-width: 700px){
+    .title-contain{
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, auto);
+    }
+
+    .title-contain > .logoBlock{
+        justify-self: center;
+    }
+
+    .title-contain > .socialBlock{
+        justify-self: center;
+    }
+}

@@ -5,14 +5,14 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { ProComponent } from './pro/pro.component'
 import { MapComponent } from './map/map.component';
 import { TournamentComponent } from './tournament/tournament.component';
-import { MapDetailComponent } from './map-detail/map-detail.component';
+import { TeamComponent } from './team/team.component';
 
 const router: Routes = [
   { path: '', component: HomepageComponent},
   { path: 'pro', component: ProComponent},
   { path: 'map', component: MapComponent},
-    { path: 'map/:id', component: MapDetailComponent},
-  { path: 'tournament', component: TournamentComponent}
+  { path: 'tournament', component: TournamentComponent},
+  { path: 'team/:id', component: TeamComponent}
 ]
 
 

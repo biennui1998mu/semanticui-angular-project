@@ -23,24 +23,24 @@
         <div class="ui grid">
           <div class="four wide column">
             <div class="ui vertical fluid tabular menu">
-              <a class="item active">
+              <a class="item" [ngClass]="{'active': selecttop1 && !selecttop6}" (click)="clickTop1()">
                 TOP 5 (HLTV)
               </a>
-              <a class="item">
+              <a class="item" [ngClass]="{'active': !selecttop1 && selecttop6}" (click)="clickTop6()">
                 TOP 6-10 (HLTV)
               </a>
-              <a class="item">
+              <a class="item" [ngClass]="{'active': !selecttop1 && !selecttop6}" (click)="clickTop10()">
                 TOP 10-20 (HLTV)
               </a>
             </div>
           </div>
-          <div class="five wide stretched column">
+          <div *ngIf="selecttop1 && !selecttop6" class="twelve wide stretched column">
             <div class="ui segment d-inline-block">
               <div class="ui list">
                 <div class="item">
                   <img class="ui avatar image" src="src/Images/Astralis.jpg">
                   <div class="content">
-                    <a class="header">Astralis</a>
+                    <a class="header" routerLink="/team">Astralis</a>
                   </div>
                 </div>
                 <div class="item">
@@ -58,7 +58,7 @@
                 <div class="item">
                   <img class="ui avatar image" src="src/Images/faze.jpg">
                   <div class="content">
-                    <a class="header">Faze</a>
+                    <a class="header" routerLink="/team/2">Faze</a>
                   </div>
                 </div>
                 <div class="item">
@@ -69,13 +69,111 @@
                 </div>
               </div>
             </div>
-            <!-- <div class="ui item d-inline-block">
-              <div class="item">
-                <a href="https://www.hltv.org/ranking/teams" target="_blank" class="ui medium rounded image">
-                  <img src="src/Images/hltv.PNG">
-                </a>
+          </div>
+
+          <div *ngIf="!selecttop1 && selecttop6" class="twelve wide stretched column">
+            <div class="ui segment d-inline-block">
+              <div class="ui list">
+                <div class="item">
+                  <img class="ui avatar image" src="src/Images/BIG.png">
+                  <div class="content">
+                    <a class="header">BIG</a>
+                  </div>
+                </div>
+                <div class="item">
+                  <img class="ui avatar image" src="src/Images/MIBR.jpg">
+                  <div class="content">
+                    <a class="header">MIBR</a>
+                  </div>
+                </div>
+                <div class="item">
+                  <img class="ui avatar image" src="src/Images/FNATIC.png">
+                  <div class="content">
+                    <a class="header">FNATIC</a>
+                  </div>
+                </div>
+                <div class="item">
+                  <img class="ui avatar image" src="src/Images/NRG.jpg">
+                  <div class="content">
+                    <a class="header">NRG</a>
+                  </div>
+                </div>
+                <div class="item">
+                  <img class="ui avatar image" src="src/Images/NORTH.png">
+                  <div class="content">
+                    <a class="header">NORTH</a>
+                  </div>
+                </div>
               </div>
-            </div> -->
+            </div>
+          </div>
+
+
+          <div *ngIf="!selecttop1 && !selecttop6" class="twelve wide stretched column">
+            <div class="ui segment d-inline-block">
+              <div class="ui list">
+                <div class="item">
+                  <img class="ui avatar image" src="src/Images/G2.jpg">
+                  <div class="content">
+                    <a class="header">G2</a>
+                  </div>
+                </div>
+                <div class="item">
+                  <img class="ui avatar image" src="src/Images/tyloo.jpg">
+                  <div class="content">
+                    <a class="header">TYLOO</a>
+                  </div>
+                </div>
+                <div class="item">
+                  <img class="ui avatar image" src="src/Images/ence.png">
+                  <div class="content">
+                    <a class="header">ENCE</a>
+                  </div>
+                </div>
+                <div class="item">
+                  <img class="ui avatar image" src="src/Images/Ninjas_in_Pyjamas_-_logo.png">
+                  <div class="content">
+                    <a class="header">NIP</a>
+                  </div>
+                </div>
+                <div class="item">
+                  <img class="ui avatar image" src="src/Images/optic.jpg">
+                  <div class="content">
+                    <a class="header">OPTIC</a>
+                  </div>
+                </div>
+                <div class="item">
+                  <img class="ui avatar image" src="src/Images/hell.png">
+                  <div class="content">
+                    <a class="header">HELLRAISERS</a>
+                  </div>
+                </div>
+                <div class="item">
+                  <img class="ui avatar image" src="src/Images/renegades.png">
+                  <div class="content">
+                    <a class="header">RENEGADES</a>
+                  </div>
+                </div>
+                <div class="item">
+                  <img class="ui avatar image" src="src/Images/600px-Gambit_Esports.png">
+                  <div class="content">
+                    <a class="header">GAMBIT</a>
+                  </div>
+                </div>
+                <div class="item">
+                  <img class="ui avatar image" src="src/Images/c9.png">
+                  <div class="content">
+                    <a class="header">CLOUD9</a>
+                  </div>
+                </div>
+                <div class="item">
+                  <img class="ui avatar image" src="src/Images/Virtus.pro-thay-đổi-màu-logo.jpg">
+                  <div class="content">
+                    <a class="header">VIRTUS.pro</a>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

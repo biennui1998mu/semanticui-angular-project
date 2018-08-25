@@ -4,7 +4,7 @@
         <a class="item" (click) = 'selectintro()'>
           Introduction
         </a>
-        <a class="item" [ngClass]="{'active': map == selectmap}" (click) = "onSelect(map)" *ngFor="let map of maps" >
+        <a class="item" [ngClass]="{'active': map == selectmap}" (click) = "onSelect(map)" *ngFor="let map of listMaps" >
           {{map.title}}
         </a>
       </div>      

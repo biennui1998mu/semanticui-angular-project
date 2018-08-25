@@ -1,5 +1,5 @@
-<div class="title" [class.clicked]='!clickedNews' [class.unclicked]='clickedNews' >
-  <a (click)='onClick(news)' *ngFor='let news of listNews' >
+<div class="title" *ngIf="!(aNews != null)" >
+  <a class="ui inverted" (click)='onClick(news)' *ngFor='let news of listNews' >
     <div class="ui segment ">
       {{news?.title}}
       <br>
@@ -9,11 +9,16 @@
 </div>
 
 
-<div class="content" [class.clicked]='clickedNews' [class.unclicked]='!clickedNews'>
+<div class="content" *ngIf="aNews != null">
   <div>
     <button class="ui button" (click)='back()' >Back</button>
   </div>
   <div>
-    <app-read [news] = 'aNews'></app-read>
+    <div class="ui segment inverted">
+      <p *ngFor="let paragraph of aNews?.content">
+          {{paragraph}}
+      </p>
+        <img [src]="aNews?.img" *ngIf="aNews?.img" alt="" style="width:100%;height:100%;">
+    </div>
   </div>
 </div>

@@ -1,30 +1,80 @@
-<div>
-  <div>
-    <div>
-      picture can click and light
-    </div>
-    <div>
-      <div>
-        <img src="" alt="">
+<div class="ui grid segment">
+  <div class="four wide column">
+    <div class="ui vertical fluid tabular menu">
+      <div class="item">
+        <div class="ui icon input">
+          <input type="text" id="searchInputText" name="searchInputText" [(ngModel)]="searchInputText" (keyup)='searchInput()' placeholder="Search...">
+            <i class="search icon"></i>
+        </div>
       </div>
-      <div>
-        <div class="ui segment">
-          <p>World ranking</p>
-          <p class="right menu">#4</p>
+      <a class="item" (click)="clickInfo()" [ngClass]="{'active': showInfo && !showUR && !showOUC && !showA}">
+        Information
+      </a>
+      <a class="item" (click)="clickUR()" [ngClass]="{'active': !showInfo && showUR && !showOUC && !showA}">
+        Upcumming & result
+      </a>
+      <a class="item" (click)="clickOUC()" [ngClass]="{'active': !showInfo && !showUR && showOUC && !showA}">
+        Ongoing & upcoming events
+      </a>
+      <a class="item" (click)="clickA()" [ngClass]="{'active': !showInfo && !showUR && !showOUC && showA}">
+        Achievements
+      </a>
+    </div>
+  </div>
+
+  <div *ngIf="showInfo && !showUR && !showOUC && !showA" class="twelve wide stretched column">
+    <div class="ui segment coverteam" [ngStyle]="{'background-image': 'url('+coverteam+')' }">
+      <div class="ui segment">
+        <div class="ui title-contain">
+          <div class="logoBlock">
+            <div class="logostart">
+              <img class="ui rounded tiny image" src="src/Images/Astralis.jpg">
+            </div>
+            <div class="ui list logoend">
+              <div class="item">
+                <div class="content">
+                  <a class="header customheader">ASTRALIS</a>
+                </div>
+              </div>
+              <div class="item">
+                <i class="dk flag"></i>
+                <a>Denmark</a>
+              </div>
+            </div>
+          </div>
+          <div class="infoblock">
+              Astralis is a Danish organization owned by players of the former Danish Team SoloMid/Questionmark lineup, with the help of their manager, Frederik "realition" Byskov. The rights to the Astralis name were obtained from the original founders of the Finnish Counter-Strike team.
+          </div>
+          <div class="socialBlock">
+            <button class="ui facebook button">
+              <i class="facebook icon"></i>
+              Facebook
+            </button>
+            <button class="ui twitter button">
+              <i class="twitter icon"></i>
+              Twitter
+            </button>
+          </div>
+        </div>
+        <div>  
         </div>
       </div>
     </div>
   </div>
-  <div>
-    recent result
+
+  <div *ngIf="!showInfo && showUR && !showOUC && !showA" class="twelve wide stretched column">
+    <p>{{dateDay}}</p>
+    <p>{{dateHour}}</p>
+    <p>{{dateMinute}}</p>
+    <p>{{dateSecond}}</p>
   </div>
-  <div>
-    Events
+
+  <div *ngIf="!showInfo && !showUR && showOUC && !showA" class="twelve wide stretched column">
+
   </div>
-  <div>
-    achievements
+
+  <div *ngIf="!showInfo && !showUR && !showOUC && showA" class="twelve wide stretched column">
+
   </div>
-  <div>
-    galleries
-  </div>
+
 </div>

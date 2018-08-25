@@ -14,6 +14,16 @@ export class HomepageComponent implements OnInit {
   newsOnClick:News = null;
   updatesOnClick:updates = null;
 
+  clickUpdate:boolean = false;
+
+  newsClick(){
+    this.clickUpdate = false;
+  }
+
+  updatesClick(){
+    this.clickUpdate = true;
+  }
+
   clickedNews(news){
     this.newsOnClick = news;
   }

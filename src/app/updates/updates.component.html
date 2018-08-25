@@ -1,0 +1,19 @@
+<div class="title" [class.clicked]='!clickedupdates' [class.unclicked]='clickedupdates' >
+  <a (click)='onClick(updates)' *ngFor='let updates of listUpdates' >
+    <div class="ui segment ">
+      {{updates?.title}}
+      <br>
+      {{updates?.updated_at}}
+    </div>
+  </a>
+</div>
+
+
+<div class="content" [class.clicked]='clickedupdates' [class.unclicked]='!clickedupdates'>
+  <div>
+    <button class="ui button" (click)='back()' >Back</button>
+  </div>
+  <div>
+    <!-- <app-read [aupdates] = 'aupdates'></app-read> -->
+  </div>
+</div>

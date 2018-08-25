@@ -1,23 +1,23 @@
-<div class="ui inverted menu" id="nav">
+<div class="ui grid inverted menu" id="nav">
   <!-- black box -->
   <div style="width: 10%; height: auto;">
   </div>
   <!-- nav  -->
   <div class="ui container">
-    <a href="" class="header item">
+    <a class="header item">
       <img class="logo" src="/src/Images/GlobalElite.jpg">
       GlobalElite
     </a>
-    <a class="active item">
+    <a class="item" routerLink="/" [routerLinkActive] = "'active'" [routerLinkActiveOptions] = "{exact:true}">
       Homepage
     </a>
-    <a class="item">
-      Pro
-    </a>
-    <a class="item">
+    <a class="item" routerLink="/map" [routerLinkActive] = "'active'" [routerLinkActiveOptions] = "{exact:true}">
       Maps - Tactics
     </a>
-    <a class="item">
+    <a class="item" routerLink="/pro" [routerLinkActive] = "'active'" [routerLinkActiveOptions] = "{exact:true}">
+      Pro
+    </a>
+    <a class="item" routerLink="/tournament" [routerLinkActive] = "'active'" [routerLinkActiveOptions] = "{exact:true}">
       Tournament
     </a>
   <div class="right menu">

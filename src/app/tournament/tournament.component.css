@@ -1,0 +1,10 @@
+.ongoing-event {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -10px;
+    margin-bottom: -10px;
+}
+.a-reset {
+    color: inherit;
+    font-weight: inherit;
+}

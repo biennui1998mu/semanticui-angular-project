@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { News } from '../../models/news';
+import { updates } from '../../models/classexport';
 
 @Component({
   selector: 'app-read',
@@ -9,6 +10,7 @@ import { News } from '../../models/news';
 export class ReadComponent implements OnInit {
 
   @Input() news:News;
+  @Input() updates:updates;
 
   constructor() { }
 

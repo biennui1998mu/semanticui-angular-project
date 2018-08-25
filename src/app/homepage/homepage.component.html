@@ -1,14 +1,49 @@
-<!-- The video -->
- <div id="normal">
-   <!-- <video autoplay muted loop id="myVideo" width="100%" height="auto">
-     <source src="/src/Video/CS_GO - Clockwork 4 by NikkyyHD.mp4" type="video/mp4" />
-   </video> -->
-   <!-- <video src="/src/Video/CS_GO - Clockwork 4 by NikkyyHD.mp4" autoplay muted="true" loop width="100%" height="auto" id="myVideo"></video> -->
+<div class="ui grid">
+  <div class="ui four wide column ">
+    <div class="ui pointing vertical fluid menu" style="padding:  7px; background-color: rgb(199, 179, 0)">
+      <a class="item" >
+        News
+      </a>
+      <a class="item" >
+        Updates
+      </a>
+    </div>
+  </div>
+
+  <div class="ui twelve wide stretched column">
+    <div class="ui segment pointing menu" style="padding:  7px; background-color: rgb(199, 179, 0)">
+      <a class="active item" (click)='onClick()' >
+        <div>
+          News
+        </div> 
+      </a>
+      <a class="item disabled" *ngIf="newsOnClick != null">
+        <div>
+          {{newsOnClick?.title}}
+        </div>
+      </a>
+    </div>
+    <div class="ui segment" style="padding: 7px; background-color: rgb(199, 179, 0)">
+      <app-news (clickedNewsOut)='clickedNews($event)' ></app-news>
+    </div>
+  </div>
+
+  <div class="ui twelve wide stretched column" >
+    <div class="ui segment pointing menu" style="padding:  7px; background-color: rgb(199, 179, 0)">
+      <a class="active item" (click)='onClick()' >
+        <div>
+          Updates
+        </div> 
+      </a>
+      <a class="item disabled" *ngIf="updatesOnClick != null">
+        <div>
+          {{updatesOnClick?.title}}
+        </div>
+      </a>
+    </div>
+    <div class="ui segment" style="padding: 7px; background-color: rgb(199, 179, 0)">
+      <app-updates (clickedupdatessOut)='clickedupdates($event)'></app-updates>
+    </div>
+  </div>
+
 </div>
-
-
-<!-- <div id="tablet">
-    <img src="/src/Images/csgo_store_image_02.png" alt="" width="100%" height="auto">
-</div> -->
-
-<app-list-pro></app-list-pro>

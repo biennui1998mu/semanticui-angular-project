@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { teams } from '../../models/classexport';
+import { teams, players } from '../../models/classexport';
 import { NewsServicesService } from '../../services/news-services.service';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -12,6 +13,7 @@ export class TeamComponent implements OnInit {
 
   searchInputText:string = '';
   listTeams:teams[] = [];
+  listplayer:players[] = [];
   showInfo:boolean = true;
   showUR:boolean = false;
   showOUC:boolean = false;
@@ -22,14 +24,35 @@ export class TeamComponent implements OnInit {
   dateSecond;
   coverteam: string = "https://i.redd.it/l7p01nrdxue01.png";
 
-  constructor(private newsServices:NewsServicesService) { }
+  playerLeader:players = null;
+
+  idTeam:number;
+  idplayer:number;
+  teamData:teams;
+
+  constructor(
+    private servicesData:NewsServicesService,
+    private newsServices:NewsServicesService,
+    private router: ActivatedRoute) { 
+      this.router.params.subscribe(key=>{
+        this.idTeam = key['id'];
+        this.newsServices.getTeam(this.idTeam).subscribe(team=>{
+          this.teamData = team[0];
+          console.log(this.teamData);
+        });
+        this.servicesData.getLeaderFromTeam(this.idTeam).subscribe(
+          leaderList => {
+            this.playerLeader = leaderList[0];
+        });
+        this.servicesData.getPlayerFromTeam(this.idTeam).subscribe(
+          listplayer => {
+            this.listplayer = listplayer;
+          }
+        );
+      })
+  }
 
   ngOnInit() {
-    this.newsServices.getAllTeam().subscribe(
-      listTeams => {
-        this.listTeams = listTeams;
-      }
-    )
 
     setInterval(()=>{
       this.getDateAcom();

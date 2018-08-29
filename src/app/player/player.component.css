@@ -1,0 +1,72 @@
+.bigbelow{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 5px;
+}
+.bigbelow > .leftinfo{
+    grid-column: 1/2;
+    grid-row: 1/2;
+}
+
+.info_player{
+    grid-column: 2/3;
+    grid-row: 1/2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1f 1fr 1fr 1fr;
+}
+.info_player > .img_player{
+    grid-column: 1/2;
+    grid-row: 1/5; 
+}
+.info_player > .name_player{
+    align-self: center;
+    grid-column: 2/3;
+    grid-row: 1/3;
+}
+.info_player > .ageplayer{
+    grid-column: 2/3;
+    grid-row: 3/4;
+}
+.info_player > .currentteam{
+    grid-column: 2/3;
+    grid-row: 4/5;
+}
+
+@media only screen and (max-width: 1100px){
+    .bigbelow{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-row-gap: 10px;
+    }
+    .bigbelow > .leftinfo{
+        grid-row: 2/3;
+        grid-column: 1/2;
+    }
+    .info_player{
+        grid-column: 1/2;
+        grid-row: 1/2;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1f 1fr 1fr 1fr;
+    }
+    .info_player > .img_player{
+        grid-column: 1/2;
+        grid-row: 1/5; 
+    }
+    .info_player > .name_player{
+        align-self: center;
+        grid-column: 2/3;
+        grid-row: 1/3;
+    }
+    .info_player > .ageplayer{
+        grid-column: 2/3;
+        grid-row: 3/4;
+    }
+    .info_player > .currentteam{
+        grid-column: 2/3;
+        grid-row: 4/5;
+    }
+}

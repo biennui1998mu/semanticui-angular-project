@@ -15,6 +15,7 @@ import { TournamentComponent } from './tournament/tournament.component';
 import { ProComponent } from './pro/pro.component';
 import { UpdatesComponent } from './updates/updates.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthorComponent } from './author/author.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { HttpClientModule } from '@angular/common/http';
     TournamentComponent,
     ProComponent,
     UpdatesComponent,
+    AuthorComponent,
   ],
   imports: [
     BrowserModule,

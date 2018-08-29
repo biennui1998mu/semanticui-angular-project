@@ -1,14 +1,15 @@
-<div class="ui inverted pointing menu">
-  <a class="item active">
+<!-- nav player -->
+<div class="ui segment inverted pointing menu">
+  <a class="item" (click)="clickstatistics()" [ngClass]="{'active': statistics && !career && !gallaries}">
     Statistics
   </a>
-  <a class="item">
+  <a class="item" (click)="clickcareer()" [ngClass]="{'active': !statistics && career && !gallaries}">
     Career achievements
   </a>
-  <a class="item">
+  <a class="item" (click)="clickgallaries()" [ngClass]="{'active': !statistics && !career && gallaries}">
     Galleries
   </a>
-  <div class="right menu">
+  <div class="ui rounded right menu" style="background-color:rgba(241, 239, 234, 0.900)">
     <div class="item">
       <div class="ui transparent icon input">
         <input type="text" placeholder="Search...">
@@ -17,18 +18,85 @@
     </div>
   </div>
 </div>
-<div class="ui segment">
-  <div class="ui segment">
-    <div>
-      <img src="" alt="">
+
+<!-- Statistics -->
+<div class="ui segment bigbelow">
+  <!-- info player -->
+  <div class="ui segment info_player">
+    <div class=" img_player">
+      <img class="ui large image" [src]="player.img" alt="">
     </div>
-    <div>
-      <p></p>
-      <p></p>
-      <p></p>
+    <div class="name_player">
+      <h1>{{player.name}}</h1> 
+      <div class="item">
+        <i class="dk flag"></i>
+        <a>{{player.realname}}</a>
+      </div>
+    </div>
+    <div class="ageplayer">
+      Age 
+      <h1>{{player.age}}</h1>
+    </div>
+    <div class="currentteam">
+      Current team
+      <h1>{{player.currentteam}}</h1>
     </div>
   </div>
-  <div class="ui segment">
-    
+
+  <!-- left info -->
+  <div class="leftinfo">
+    <!-- Statistics -->
+    <div *ngIf="statistics && !career && !gallaries">
+      <table class="ui celled table">
+        <tbody>
+          <tr>
+            <td>Rating 2.0</td>
+            <td>Maps played</td>
+          </tr>
+          <tr>
+            <td>Kills per round</td>
+            <td>Deaths per round</td>
+          </tr>
+          <tr>
+            <td>Headshots</td>
+            <td>Rounds contributed</td>
+          </tr>
+      </table>
+    </div>
+
+    <!-- Career achievements -->
+    <div *ngIf="!statistics && career && !gallaries">
+      <table class="ui celled table">
+        <thead>
+          <tr>
+            <th>Majors</th>
+            <th>Recent LANs</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Group stage at ELEAGUE Major 2018</td>
+            <td>1st at ELEAGUE CS:GO Premier 2018</td>
+          </tr>
+          <tr>
+            <td>3rd at PGL Major Krakow 2017</td>
+            <td>3rd at ESL One Cologne 2018</td>
+          </tr>
+          <tr>
+            <td>1st at ELEAGUE Major 2017</td>
+            <td>1st at ECS Season 5 Finals</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Galleries -->
+    <div class="ui segment" *ngIf="!statistics && !career && gallaries">
+      <div class="ui small images">
+          <img src="src/Images/Astralis-ECS-Season-5.jpg">
+          <img src="src/Images/Astralis.jpg">
+          <img src="src/Images/gla1ve-large.png">
+        </div>
+    </div>
   </div>
 </div>

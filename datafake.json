@@ -479,14 +479,138 @@
             "Name": "ASTRALIS",
             "Country": "Denmark",
             "World_score": 1000,
-            "img": ""
+            "img": "src/Images/Astralis.jpg",
+            "discription": "Astralis is a Danish organization owned by players of the former Danish Team SoloMid/Questionmark lineup, with the help of their manager, Frederik \"realition\" Byskov. The rights to the Astralis name were obtained from the original founders of the Finnish Counter-Strike team."
         },
         {
             "id": 2,
             "Name": "FAZE",
             "Country": "Europe",
             "World_score": 999,
-            "img": ""
+            "img": "src/Images/faze.jpg",
+            "discription": "FaZe Clan is an American professional esports organization, mostly known for its presence in the Call of Duty scene."
+        },
+        {
+            "id": 3,
+            "Name": "Natus Vincere",
+            "Country": "Russia",
+            "World_score": 791,
+            "img": "src/Images/Navi.jpg"
+        },{
+            "id": 4,
+            "Name": "Liquid",
+            "Country": "North America",
+            "World_score": 494,
+            "img": "src/Images/liquid.jpg"
+        },{
+            "id": 5,
+            "Name": "Mousesports",
+            "Country": "Europe",
+            "World_score": 369,
+            "img": "src/Images/Mouse_eSports_p.jpg"
+        }
+    ],
+
+    "players":[
+        {
+            "id": 1,
+            "name": "gla1ve",
+            "realname": "Lukas Rossander",
+            "age": 23,
+            "currentteam":"Astralis",
+            "img": "src/Images/gla1ve-large.png",
+            "idTeam":1,
+            "leader":true
+        },
+        {
+            "id": 2,
+            "name": "dupreeh",
+            "realname": "Peter Rasmussen",
+            "age": 25,
+            "currentteam":"Astralis",
+            "img": "src/Images/dupreeh-csgo.jpg",
+            "idTeam":1,
+            "leader":false
+        },
+        {
+            "id": 3,
+            "name": "Xyp9x",
+            "realname": "Andreas Højsleth",
+            "age": 22,
+            "currentteam":"Astralis",
+            "img": "src/Images/xyp9x.jpg",
+            "idTeam":1,
+            "leader":false
+        },
+        {
+            "id": 4,
+            "name": "device",
+            "realname": "Nicolai Reedtz",
+            "age": 22,
+            "currentteam":"Astralis",
+            "img": "src/Images/dev1ce_jj.png",
+            "idTeam":1,
+            "leader":false
+        },
+        {
+            "id": 5,
+            "name": "Magisk",
+            "realname": "Emil Reif",
+            "age": 20,
+            "currentteam":"Astralis",
+            "img": "src/Images/magisk-large.png",
+            "idTeam":1,
+            "leader":false
+        },
+        {
+            "id": 6,
+            "name": "Karrigan",
+            "realname": "Lukas Rossander",
+            "age": 23,
+            "currentteam":"Astralis",
+            "img": "src/Images/Karrigan-faze.png",
+            "idTeam":2,
+            "leader":true
+        },
+        {
+            "id": 7,
+            "name": "Rain",
+            "realname": "Peter Rasmussen",
+            "age": 25,
+            "currentteam":"Astralis",
+            "img": "src/Images/rain-faze.png",
+            "idTeam":2,
+            "leader":false
+        },
+        {
+            "id": 8,
+            "name": "Olofmeister",
+            "realname": "Andreas Højsleth",
+            "age": 22,
+            "currentteam":"Astralis",
+            "img": "src/Images/olof-faze.png",
+            "idTeam":2,
+            "leader":false
+        },
+        {
+            "id": 9,
+            "name": "Guardian",
+            "realname": "Nicolai Reedtz",
+            "age": 22,
+            "currentteam":"Astralis",
+            "img": "src/Images/GuardiaN-faze.png",
+            "idTeam":2,
+            "leader":false
+        },
+        {
+            "id": 10,
+            "name": "Niko",
+            "realname": "Emil Reif",
+            "age": 20,
+            "currentteam":"Astralis",
+            "img": "src/Images/niko-faze.png",
+            "idTeam":2,
+            "leader":false
         }
     ],
 
@@ -494,7 +618,7 @@
         {
             "id":1,
             "team1": 1,
-            "team2": 2,
+            "team2": 4,
             "time" : "August 28, 2018, 9:00:00 AM",
             "status" : 1
         }

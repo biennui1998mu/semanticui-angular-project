@@ -29,5 +29,6 @@ export class MapComponent implements OnInit {
 
   selectintro(){
     this.selectmap = null;
+    
   }
 }

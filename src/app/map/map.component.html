@@ -11,9 +11,12 @@
   </div>
   
   <div class="ui segment twelve wide stretched column" style="padding: 7px; background-color: rgb(199, 179, 0)">    
+    <div *ngIf="!selectmap">
+      <img class="ui fluid image" src="src/Images/Pickmap.jpg" alt="">
+    </div>
     <div *ngIf="selectmap">
       <div class="ui segment inverted">
-        {{selectmap.title}}
+        <h1>{{selectmap.title}}</h1>
         <br>
         <p *ngFor="let paragraph of selectmap.intro">
           {{paragraph}}

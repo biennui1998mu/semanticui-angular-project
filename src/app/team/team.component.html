@@ -1,49 +1,53 @@
 <div class="ui grid segment">
-  <div class="four wide column">
-    <div class="ui vertical fluid tabular menu">
-      <div class="item">
+  <div class="four wide column" style="padding: 1px; background-color: rgb(199, 179, 0)">
+    <div class="ui vertical fluid tabular menu" >
+      <div class="ui segment item">
         <div class="ui icon input">
           <input type="text" id="searchInputText" name="searchInputText" [(ngModel)]="searchInputText" (keyup)='searchInput()' placeholder="Search...">
             <i class="search icon"></i>
         </div>
       </div>
-      <a class="item" (click)="clickInfo()" [ngClass]="{'active': showInfo && !showUR && !showOUC && !showA}">
-        Information
-      </a>
-      <a class="item" (click)="clickUR()" [ngClass]="{'active': !showInfo && showUR && !showOUC && !showA}">
-        Upcumming & result
-      </a>
-      <a class="item" (click)="clickOUC()" [ngClass]="{'active': !showInfo && !showUR && showOUC && !showA}">
-        Ongoing & upcoming events
-      </a>
-      <a class="item" (click)="clickA()" [ngClass]="{'active': !showInfo && !showUR && !showOUC && showA}">
-        Achievements
-      </a>
+      <div class="ui segment">
+        <a class="item" (click)="clickInfo()" [ngClass]="{'active': showInfo && !showUR && !showOUC && !showA}">
+          Information
+        </a>
+        <a class="item" (click)="clickUR()" [ngClass]="{'active': !showInfo && showUR && !showOUC && !showA}">
+          Upcumming matches
+        </a>
+        <a class="item" (click)="clickOUC()" [ngClass]="{'active': !showInfo && !showUR && showOUC && !showA}">
+          Ongoing & upcoming events
+        </a>
+        <a class="item" (click)="clickA()" [ngClass]="{'active': !showInfo && !showUR && !showOUC && showA}">
+          Achievements
+        </a>
+      </div>
     </div>
   </div>
 
-  <div *ngIf="showInfo && !showUR && !showOUC && !showA" class="twelve wide stretched column">
+<!-- tab1 -->
+  <div *ngIf="showInfo && !showUR && !showOUC && !showA" class="twelve wide stretched column" style="padding: 7px; background-color: rgb(199, 179, 0)">
     <div class="ui segment coverteam" [ngStyle]="{'background-image': 'url('+coverteam+')' }">
       <div class="ui segment">
         <div class="ui title-contain">
           <div class="logoBlock">
             <div class="logostart">
-              <img class="ui rounded tiny image" src="src/Images/Astralis.jpg">
+              <img class="ui rounded tiny image" [src]="teamData.img">
             </div>
             <div class="ui list logoend">
               <div class="item">
                 <div class="content">
-                  <a class="header customheader">ASTRALIS</a>
+                  <a class="header customheader">{{teamData?.Name}}</a>
                 </div>
               </div>
               <div class="item">
-                <i class="dk flag"></i>
-                <a>Denmark</a>
+                <i class="dk flag" *ngIf="teamData?.Country == 'Denmark'"></i>
+                <i class="eu flag" *ngIf="teamData?.Country == 'Europe'"></i>
+                <a>{{teamData?.Country}}</a>
               </div>
             </div>
           </div>
           <div class="infoblock">
-              Astralis is a Danish organization owned by players of the former Danish Team SoloMid/Questionmark lineup, with the help of their manager, Frederik "realition" Byskov. The rights to the Astralis name were obtained from the original founders of the Finnish Counter-Strike team.
+              {{teamData.discription}}
           </div>
           <div class="socialBlock">
             <button class="ui facebook button">
@@ -59,22 +63,236 @@
         <div>  
         </div>
       </div>
+
+      <div class="ui segment">
+
+        <table class="ui fixed single line celled table">
+          <thead>
+            <h3 class="ui block header">
+              Leader
+            </h3>
+          </thead>
+          <tbody>
+            <tr>
+              <div class="div_tonghop">
+                <div class="div_img">
+                  <img class="ui circular small image" [src]="playerLeader?.img" alt="">
+                </div>
+                <div class="div_player" >
+                  <h1>{{playerLeader?.name}}</h1> 
+                  <div class="item">
+                    <i class="dk flag" *ngIf="teamData?.Country == 'Denmark'"></i>
+                    <i class="eu flag" *ngIf="teamData?.Country == 'Europe'"></i>
+                    <a>{{playerLeader?.realname}}</a>
+                  </div>
+                </div>
+              </div>
+            </tr>
+          </tbody>
+        </table>
+
+        <table class="ui fixed single line celled table">
+          <thead>
+            <h3 class="ui block header">
+              Players
+            </h3>
+          </thead>
+          <tbody>
+              <tr>
+                <div class="div_tonghop" *ngFor="let Players of listplayer">
+                  <div class="div_img">
+                    <img class="ui circular tiny image" [src]="Players.img" routerLink="/player/{{players?.id}}">
+                  </div>
+                  <div class="div_player">
+                    <h1>{{Players.name}}</h1> 
+                    <div class="item">
+                      <!-- <i class="dk flag" *ngIf="teamData?.Country == 'Denmark'"></i>
+                      <i class="eu flag" *ngIf="teamData?.Country == 'Europe'"></i> -->
+                      <a>{{Players.realname}}</a>
+                    </div>
+                  </div>
+                </div>
+              </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 
-  <div *ngIf="!showInfo && showUR && !showOUC && !showA" class="twelve wide stretched column">
-    <p>{{dateDay}}</p>
-    <p>{{dateHour}}</p>
-    <p>{{dateMinute}}</p>
-    <p>{{dateSecond}}</p>
+<!-- tab2 -->
+  <div *ngIf="!showInfo && showUR && !showOUC && !showA" class="twelve wide stretched column" style="padding: 7px; background-color: rgb(199, 179, 0)">
+    <div class="ui segment">
+      <div class="ui segment custommatch">
+        <div class="firstteam">
+          <img class="ui fluid rounded image" src="src/Images/ASTRALIScustomMATCH.jpeg" alt="">
+        </div>
+        <div class="secondteam">
+          <img class="ui fluid rounded image" src="src/Images/FAZEcustomMATCH.jpg" alt="">
+        </div>
+        <div class="imageteam1">
+          <img class="ui rounded large image" src="src/Images/Astralis.jpg" alt="">
+        </div>
+        <div class="ui center aligned segment timematch">
+          <div class="ui circular tiny image">
+            <img src="src/Images/VERSUS.jpg" alt="">
+          </div>
+          <div class="ui segment">
+            <p>{{dateDay}} days<span> {{dateHour}}</span> <span>: {{dateMinute}}</span> <span>: {{dateSecond}}</span></p>
+          </div>
+        </div>
+        <div class="imageteam2">
+          <img class="ui rounded large image" src="src/Images/faze.jpg" alt="">
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div *ngIf="!showInfo && !showUR && showOUC && !showA" class="twelve wide stretched column">
-
+<!-- tab3 -->
+  <div *ngIf="!showInfo && !showUR && showOUC && !showA" class="twelve wide stretched column" style="padding: 7px; background-color: rgb(199, 179, 0)">
+    <div class="ui segment">
+      <h2 class="ui left floated header">Ongoing event</h2>
+      <div class="ui clearing divider"></div>
+      <div class="div_event">
+        <button class="ui animated button event1">
+          <div class="div_ongoing">
+            <div class="img_ongoing">
+              <img class="ui tiny rounded image" src="src/Images/ZOTACcup2018.jpeg" alt="">
+            </div>
+            <div class="name_ongoing">
+              ZOTAC Cup Masters 2018 Grand Finals
+            </div>
+            <div class="time_ongoing">
+              Aug 24th - Aug 26th
+            </div>
+          </div>
+        </button>
+        <button class="ui animated button event2">
+            <div class="div_ongoing">
+              <div class="img_ongoing">
+                <img class="ui tiny rounded image" src="src/Images/ggBET.png" alt="">
+              </div>
+              <div class="name_ongoing">
+                GG.BET summer Europe
+              </div>
+              <div class="time_ongoing">
+                Aug 17th 2018
+              </div>
+            </div>
+          </button>
+          <button class="ui animated button event3">
+              <div class="div_ongoing">
+                <div class="img_ongoing">
+                  <img class="ui tiny rounded image" src="src/Images/Thunderpick.png" alt="">
+                </div>
+                <div class="name_ongoing">
+                  Thunderpick Invitation #3
+                </div>
+                <div class="time_ongoing">
+                  Aug 12th 2018
+                </div>
+              </div>
+            </button>
+      </div>
+    </div>
+    <div class="ui segment">
+      <h2 class="ui left floated header">Upcuming event</h2>
+      <div class="ui clearing divider"></div>
+      <div class="div_event">
+        <button class="ui animated button event1">
+          <div class="div_ongoing">
+            <div class="img_ongoing">
+              <img class="ui tiny rounded image" src="src/Images/ZOTACcup2018.jpeg" alt="">
+            </div>
+            <div class="name_ongoing">
+              ZOTAC Cup Masters 2018 Grand Finals
+            </div>
+            <div class="time_ongoing">
+              Aug 24th - Aug 26th
+            </div>
+          </div>
+        </button>
+        <button class="ui animated button event2">
+          <div class="div_ongoing">
+            <div class="img_ongoing">
+              <img class="ui tiny rounded image" src="src/Images/ggBET.png" alt="">
+            </div>
+            <div class="name_ongoing">
+              GG.BET summer Europe
+            </div>
+            <div class="time_ongoing">
+              Aug 17th 2018
+            </div>
+          </div>
+        </button>
+        <button class="ui animated button event3">
+          <div class="div_ongoing">
+            <div class="img_ongoing">
+              <img class="ui tiny rounded image" src="src/Images/Thunderpick.png" alt="">
+            </div>
+            <div class="name_ongoing">
+              Thunderpick Invitation #3
+            </div>
+            <div class="time_ongoing">
+              Aug 12th 2018
+            </div>
+          </div>
+        </button>
+      </div>
+    </div>
   </div>
 
-  <div *ngIf="!showInfo && !showUR && !showOUC && showA" class="twelve wide stretched column">
-
+<!-- tab4 -->
+  <div *ngIf="!showInfo && !showUR && !showOUC && showA" class="twelve wide stretched column" style="padding: 7px; background-color: rgb(199, 179, 0)">
+    <div class="ui segment">
+      <table class="ui fixed inverted table" style="width: 100%">
+        <thead>
+          <tr>
+            <th width="10%">Tier</th>
+            <th width="60%">Tournament</th>
+            <th width="10%">Placement</th>
+            <th width="10%">Date</th>
+            <th width="10%">Prize</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <a class="ui yellow ribbon label">Premium</a>
+            <td>ELEAGUE CS:GO Premier 2018</td>
+            <td>1st</td>
+            <td>2018-07-29</td>
+            <td>$500,000</td>
+          </tr>
+          <tr>
+            <a class="ui yellow ribbon label">Premium</a>
+            <td>Esports Championship Series Season 5 - Finals</td>
+            <td>1st</td>
+            <td>2018-06-10</td>
+            <td>$250,000</td>
+          </tr>
+          <tr>
+            <a class="ui yellow ribbon label">Premium</a>
+            <td>ESL Pro League Season 7 - Finals</td>
+            <td>1st</td>
+            <td>2018-05-20</td>
+            <td>$250,000</td>
+          </tr>
+          <tr>
+            <a class="ui yellow ribbon label">Premium</a>
+            <td>DreamHack Masters Marseille 2018</td>
+            <td>1st</td>
+            <td>2018-04-22</td>
+            <td>$100,000</td>
+          </tr>
+          <tr>
+            <a class="ui yellow ribbon label">Premium</a>
+            <td>ELEAGUE CS:GO Premier 2017</td>
+            <td>2nd</td>
+            <td>2017-10-13</td>
+            <td>150,000</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 
 </div>

@@ -12,6 +12,7 @@ export class teams{
     country: string;
     world_score: number;
     // rank:
+    discription: string[];
 };
 export class players{
     id:number;
@@ -19,6 +20,7 @@ export class players{
     realname: string;
     age: number;
     currentteam: string;
+    img?: string[];
 };
 export class updates{
     id:number;

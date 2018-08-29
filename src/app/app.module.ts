@@ -16,6 +16,7 @@ import { ProComponent } from './pro/pro.component';
 import { UpdatesComponent } from './updates/updates.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthorComponent } from './author/author.component';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { AuthorComponent } from './author/author.component';
     ProComponent,
     UpdatesComponent,
     AuthorComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,

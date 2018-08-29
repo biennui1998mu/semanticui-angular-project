@@ -8,6 +8,7 @@ import { TournamentComponent } from './tournament/tournament.component';
 import { TeamComponent } from './team/team.component';
 import { PlayerComponent } from './player/player.component';
 import { AuthorComponent } from './author/author.component';
+import { SearchComponent } from './search/search.component';
 
 const router: Routes = [
   { path: '', component: HomepageComponent},
@@ -16,7 +17,8 @@ const router: Routes = [
   { path: 'tournament', component: TournamentComponent},
   { path: 'team/:id', component: TeamComponent},
   { path: 'player/:id', component: PlayerComponent},
-  { path: 'author', component: AuthorComponent}
+  { path: 'author', component: AuthorComponent},
+  { path: 'search', component: SearchComponent}
 ]
 
 

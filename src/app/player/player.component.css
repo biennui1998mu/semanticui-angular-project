@@ -15,6 +15,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1f 1fr 1fr 1fr;
+    grid-column-gap: 5px;
 }
 .info_player > .img_player{
     grid-column: 1/2;

@@ -23,16 +23,16 @@
     </a>
   <div class="right menu">
     <div class="item">
-      <div class="ui right left icon input">
+      <form (onSubmit)='onSearch()' class="ui right left icon input">
         <i class="search icon"></i>
-        <input class="" type="text" placeholder="Search...">
-        <a class="ui animated fade button ui inverted white button">
+        <input class="" [(ngModel)]="searchString" name="searchstring" type="text" placeholder="Search...">
+        <a type="submit" (click)="onSearch()" class="ui animated fade button ui inverted white button">
           <div class="visible content">Search</div>
           <div class="hidden content">
             <i class="search icon"></i>
           </div>
         </a>
-      </div>
+      </form>
     </div>
   </div>
   <!-- black box -->

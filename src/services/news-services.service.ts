@@ -73,6 +73,16 @@ export class NewsServicesService {
     )
   }
 
+  searchPlayer(name:string):Observable<players[]>{
+    let searchString = name.trim();
+    if (searchString.length >2){
+      return this.http.get<players[]>(this.urlSource+"players?name_like="+searchString).pipe(
+        tap( listPlayers => listPlayers),
+      catchError( err => of([]))
+      )
+    }
+  }
+
   constructor(
     private http:HttpClient
   ) { }

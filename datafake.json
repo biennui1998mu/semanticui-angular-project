@@ -567,7 +567,7 @@
             "name": "Karrigan",
             "realname": "Lukas Rossander",
             "age": 23,
-            "currentteam":"Astralis",
+            "currentteam":"Faze",
             "img": "src/Images/Karrigan-faze.png",
             "idTeam":2,
             "leader":true
@@ -577,7 +577,7 @@
             "name": "Rain",
             "realname": "Peter Rasmussen",
             "age": 25,
-            "currentteam":"Astralis",
+            "currentteam":"Faze",
             "img": "src/Images/rain-faze.png",
             "idTeam":2,
             "leader":false
@@ -587,7 +587,7 @@
             "name": "Olofmeister",
             "realname": "Andreas Højsleth",
             "age": 22,
-            "currentteam":"Astralis",
+            "currentteam":"Faze",
             "img": "src/Images/olof-faze.png",
             "idTeam":2,
             "leader":false
@@ -597,7 +597,7 @@
             "name": "Guardian",
             "realname": "Nicolai Reedtz",
             "age": 22,
-            "currentteam":"Astralis",
+            "currentteam":"Faze",
             "img": "src/Images/GuardiaN-faze.png",
             "idTeam":2,
             "leader":false
@@ -607,7 +607,7 @@
             "name": "Niko",
             "realname": "Emil Reif",
             "age": 20,
-            "currentteam":"Astralis",
+            "currentteam":"Faze",
             "img": "src/Images/niko-faze.png",
             "idTeam":2,
             "leader":false

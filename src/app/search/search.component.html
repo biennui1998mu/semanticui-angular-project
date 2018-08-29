@@ -1,0 +1,15 @@
+<table class="ui single line table">
+  <thead>
+    <tr>
+      <th>Players</th>
+      <th>Teams</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let player of listSearch">
+      <td><a routerLink='/player/{{player?.id}}'> {{player?.name}}</a></td>
+      <td>{{player?.currentteam}}</td>
+    </tr>
+    <tr>
+  </tbody>
+</table>

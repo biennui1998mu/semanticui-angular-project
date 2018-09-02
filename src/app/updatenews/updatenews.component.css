@@ -1,0 +1,8 @@
+.textcustom{
+    text-overflow: ellipsis;
+    overflow-wrap: break-word;
+}
+
+.title{
+    display: block;
+}

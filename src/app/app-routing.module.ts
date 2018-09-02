@@ -9,6 +9,8 @@ import { TeamComponent } from './team/team.component';
 import { PlayerComponent } from './player/player.component';
 import { AuthorComponent } from './author/author.component';
 import { SearchComponent } from './search/search.component';
+import { LoginComponent } from './login/login.component';
+import { UpdatenewsComponent } from './updatenews/updatenews.component';
 
 const router: Routes = [
   { path: '', component: HomepageComponent},
@@ -18,7 +20,9 @@ const router: Routes = [
   { path: 'team/:id', component: TeamComponent},
   { path: 'player/:id', component: PlayerComponent},
   { path: 'author', component: AuthorComponent},
-  { path: 'search', component: SearchComponent}
+  { path: 'search', component: SearchComponent},
+  { path: 'login', component: LoginComponent},
+  { path: 'writenews', component: UpdatenewsComponent}
 ]
 
 

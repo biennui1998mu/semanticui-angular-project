@@ -22,7 +22,7 @@ export class TeamComponent implements OnInit {
   dateHour;
   dateMinute;
   dateSecond;
-  coverteam: string = "https://i.redd.it/l7p01nrdxue01.png";
+
 
   playerLeader:players = null;
 
@@ -37,7 +37,8 @@ export class TeamComponent implements OnInit {
       this.router.params.subscribe(key=>{
         this.idTeam = key['id'];
         this.newsServices.getTeam(this.idTeam).subscribe(team=>{
-          this.teamData = team[0];
+          //@ts-ignore
+          this.teamData = team;
           console.log(this.teamData);
         });
         this.servicesData.getLeaderFromTeam(this.idTeam).subscribe(

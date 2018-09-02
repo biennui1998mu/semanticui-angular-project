@@ -1,0 +1,70 @@
+<div class="ui pointing inverted menu">
+  <a class="item" (click)="clickadd()" [ngClass]="{'avtive': add && !update}">
+    Add news
+  </a>
+  <a class="item" (click)="clickupdate()" [ngClass]="{'active': !add && update}">
+    Update news
+  </a>
+</div>
+
+
+  <!-- Add news -->
+  <div *ngIf="add && !update" class="ui segment" style="padding: 7px; background-color: rgb(199, 179, 0)">
+    <form class="ui segment form" (ngSubmit)='onSubmit()'>
+      <div class="fields">
+        <div class="seven wide field">
+          <label>Title</label>
+          <input type="text" [(ngModel)]="title" name="title" placeholder="Title">
+        </div>
+      </div>
+      <div class="ui form">
+        <div class="field">
+          <label>Text</label>
+          <textarea name="textInput" id="textInput" [(ngModel)]="textInput"></textarea>
+        </div>
+        <div >
+          <input type="url" name="url" id="url" [(ngModel)]="imgInput" />
+        </div>
+        <div class="circular ui icon button" (click)="chooseAdd()">
+          <i class="icon plus"></i>
+        </div>
+        <div class="ui segment" *ngFor="let paragraph of newscontentlist; index as i">
+          <div class="textcustom">
+            {{paragraph.content}}
+          </div>
+          <div>
+            {{paragraph?.img}}
+          </div>
+          <div class="circular ui icon button" (click)="deleteText(i)">
+            <i class="icon trash alternate"></i>
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="ui button" tabindex="0">Submit</button>
+    </form>
+  </div>
+
+
+  <!-- Update news -->
+  <div *ngIf="!add && update" class="ui segment">
+    <div class="ui segment">
+      <!-- list news -->
+      <div class="title" *ngIf="!(aNews != null)" >
+        <a class="ui inverted" *ngFor='let news of listNews; index as a' >
+          <div class="ui segment ">
+            {{news?.title}}
+            <br>
+            {{news?.updated_at}}
+          </div>
+          <div class="ui button" (click)="onClick()">
+            <i class="ui edit icon"></i>
+          </div>
+          <div class="ui button" (click)="deletenews(a)">
+            <i class="ui trash icon"></i>
+          </div>
+        </a>
+      </div>
+
+      <!-- edit news -->
+    </div>  
+  </div>

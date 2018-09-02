@@ -26,12 +26,12 @@
 
 <!-- tab1 -->
   <div *ngIf="showInfo && !showUR && !showOUC && !showA" class="twelve wide stretched column" style="padding: 7px; background-color: rgb(199, 179, 0)">
-    <div class="ui segment coverteam" [ngStyle]="{'background-image': 'url('+coverteam+')' }">
+    <div class="ui segment coverteam" [ngStyle]="{'background-image': 'url('+teamData?.cover+')' }">
       <div class="ui segment">
         <div class="ui title-contain">
           <div class="logoBlock">
             <div class="logostart">
-              <img class="ui rounded tiny image" [src]="teamData.img">
+              <img class="ui rounded tiny image" [src]="teamData?.logo">
             </div>
             <div class="ui list logoend">
               <div class="item">
@@ -47,7 +47,7 @@
             </div>
           </div>
           <div class="infoblock">
-              {{teamData.discription}}
+              {{teamData?.discription}}
           </div>
           <div class="socialBlock">
             <button class="ui facebook button">
@@ -101,7 +101,7 @@
               <tr>
                 <div class="div_tonghop" *ngFor="let Players of listplayer">
                   <div class="div_img">
-                    <img class="ui circular tiny image" [src]="Players.img" routerLink="/player/{{Players?.id}}">
+                    <img class="ui circular tiny image" [src]="Players?.img" routerLink="/player/{{Players?.id}}">
                   </div>
                   <div class="div_player">
                     <h1>{{Players.name}}</h1> 

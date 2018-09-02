@@ -6,4 +6,23 @@
     display: block;
 }
 
+.inputcustom{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 3px;
+    height: 50px;
+}
+.inputcustom > .inputemail{
+    grid-column: 1/2;
+    grid-row: 1/2;
+}
+.inputcustom > .inputcomment{
+    grid-column: 2/6;
+    grid-row: 1/2;
+}
+.textcustom{
+    text-overflow: ellipsis;
+    overflow-wrap: break-word;
+}
 

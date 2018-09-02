@@ -15,10 +15,35 @@
   </div>
   <div>
     <div class="ui segment inverted">
-      <p *ngFor="let paragraph of aNews?.content">
-          {{paragraph}}
-      </p>
-        <img [src]="aNews?.img" *ngIf="aNews?.img" alt="" style="width:100%;height:100%;">
+      <div *ngFor="let paragraph of aNews.news_content">
+          <p>
+            {{paragraph.content}}
+          </p>
+          <img [src]="paragraph.img" *ngIf="paragraph.img" alt="" style="width:100%;height:100%;">
+      </div>
+    </div>
+
+    <div class="ui segment" style="padding:  7px; background-color: rgb(199, 179, 0)">
+      <div class="ui segment">
+        <div class="ui form">
+          <form class="field" (ngSubmit)='onSubmit()'>
+            <div class="ui segment" *ngFor="let comment of aNews.comments">
+              <div>
+                {{comment.comment}}
+              </div>
+            </div>
+            <div>
+              <label>Email</label>
+              <input type="email" [(ngModel)]="emailInput" name="email" placeholder="email">
+            </div>
+            <div>
+              <label>Comment</label>
+              <textarea name="textInput" id="textInput" [(ngModel)]="textInput"></textarea>
+            </div>
+            <button (click)="onSubmit()" type="submit" class="ui button" tabindex="0">Comment</button>
+          </form>
+        </div>
+      </div>
     </div>
   </div>
 </div>

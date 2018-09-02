@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { News } from '../models/news';
-import { updates, Maps, teams, players } from '../models/classexport';
+import { Maps, teams, players, JSONResponse } from '../models/classexport';
 import { Observable,of } from 'rxjs';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 
@@ -11,17 +11,11 @@ import { tap, catchError, map} from "rxjs/operators"
 })
 export class NewsServicesService {
 
-  private urlSource = 'http://localhost:3000/';
+  private urlSource = 'http://localhost:8000/api/';
 
   getAllNews():Observable<News[]>{
     return this.http.get<News[]>(this.urlSource+"news").pipe(
       tap( listNews => listNews ),
-      catchError(err => of([]))
-    );
-  }
-  getAllUpdates():Observable<updates[]>{
-    return this.http.get<updates[]>(this.urlSource+"updates").pipe(
-      tap( listUpdates => listUpdates ),
       catchError(err => of([]))
     );
   }
@@ -46,28 +40,29 @@ export class NewsServicesService {
   }
 
   getPlayer(idPlayer):Observable<players[]>{
-    return this.http.get<players[]>(this.urlSource+"players?id="+idPlayer).pipe(
+    return this.http.get<players[]>(this.urlSource+"players/"+idPlayer).pipe(
       tap( listplayer => listplayer),
       catchError( err => of([]))
     )
   }
 
   getTeam(idTeam):Observable<teams[]>{
-    return this.http.get<teams[]>(this.urlSource+"teams?id="+idTeam).pipe(
+    return this.http.get<teams[]>(this.urlSource+"teams/"+idTeam).pipe(
       tap( listTeams => listTeams),
       catchError( err => of([]))
     )
   }
 
   getPlayerFromTeam(idTeam):Observable<players[]>{
-    return this.http.get<players[]>(this.urlSource+"players?idTeam="+idTeam).pipe(
-      tap( listPlayers => listPlayers),
+    return this.http.get<players[]>(this.urlSource+"teams/"+idTeam).pipe(
+      //@ts-ignore
+      tap( listPlayers => listPlayers.player),
       catchError( err => of([]))
     )
   }
 
   getLeaderFromTeam(idTeam):Observable<players[]>{
-    return this.http.get<players[]>(this.urlSource+"players?idTeam="+idTeam+"&leader=true").pipe(
+    return this.http.get<players[]>(this.urlSource+"teams/"+idTeam+"/leader").pipe(
       tap( listPlayers => listPlayers),
       catchError( err => of([]))
     )
@@ -76,9 +71,28 @@ export class NewsServicesService {
   searchPlayer(name:string):Observable<players[]>{
     let searchString = name.trim();
     if (searchString.length >2){
-      return this.http.get<players[]>(this.urlSource+"players?name_like="+searchString).pipe(
+      return this.http.get<players[]>(this.urlSource+"players?name="+searchString).pipe(
         tap( listPlayers => listPlayers),
-      catchError( err => of([]))
+        catchError( err => of([]))
+      )
+    }
+  }
+
+  // UPLOAD TO SERVER////////////////////////////////////////////////////////////////////////////////
+
+  uploadNews(formdata):Observable<JSONResponse[]>{
+    if (formdata != null){
+      return this.http.post<JSONResponse[]>(this.urlSource+"news/upload",formdata).pipe(
+        tap( res => res),
+        catchError( err => of([]))
+      )
+    }
+  }
+  uploadComment(commentData):Observable<JSONResponse[]>{
+    if (commentData != null){
+      return this.http.post<JSONResponse[]>(this.urlSource+"news/comment/upload",commentData).pipe(
+        tap( res => res),
+        catchError( err => of([]))
       )
     }
   }

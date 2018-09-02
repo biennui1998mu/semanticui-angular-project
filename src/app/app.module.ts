@@ -13,10 +13,12 @@ import { TeamComponent } from './team/team.component';
 import { MapComponent } from './map/map.component';
 import { TournamentComponent } from './tournament/tournament.component';
 import { ProComponent } from './pro/pro.component';
-import { UpdatesComponent } from './updates/updates.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthorComponent } from './author/author.component';
 import { SearchComponent } from './search/search.component';
+import { UpdatenewsComponent } from './updatenews/updatenews.component';
+import { LoginComponent } from './login/login.component';
+
 
 @NgModule({
   declarations: [
@@ -29,9 +31,10 @@ import { SearchComponent } from './search/search.component';
     MapComponent,
     TournamentComponent,
     ProComponent,
-    UpdatesComponent,
     AuthorComponent,
     SearchComponent,
+    UpdatenewsComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

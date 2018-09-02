@@ -38,18 +38,18 @@ export class NewsComponent implements OnInit {
     this.clickedNewsOut.emit(null);
   }
 
-  newscomment:comment[] = [];
+  newscommnet:comment[] = [];
   textInput:string = '';
   emailInput:string = '';
   comment:string = '';
 
   private commentData ={
     email:'',
-    comment: '',
+    comment:'',
     idNews: null,
   }
 
-  preparedata():boolean{
+  preparedata(){
     if (this.textInput.length > 0){
       this.commentData.idNews = this.aNews.id;
       this.commentData.email = this.emailInput;
@@ -60,22 +60,21 @@ export class NewsComponent implements OnInit {
   }
 
   onSubmit(){
-    if (this.textInput.length > 1) {
+    if (this.textInput.length > 1){
       let tempt:comment = new comment;
       tempt.comment = this.textInput;
-      this.newscomment.push(tempt);
+      this.newscommnet.push(tempt);
     }
     if (this.preparedata()){
-      this.emailInput = '';
+      this.emailInput =  '';
       this.textInput = '';
       this.newsServices.uploadComment(this.commentData).subscribe(
         res => {
           console.log(res)
         }
       )
-    }else{
-      console.log('lmao');
+    } else{
+      console.log('pass mon')
     }
   }
-
 }

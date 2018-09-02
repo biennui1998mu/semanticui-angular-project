@@ -22,25 +22,26 @@
           <img [src]="paragraph.img" *ngIf="paragraph.img" alt="" style="width:100%;height:100%;">
       </div>
     </div>
-
     <div class="ui segment" style="padding:  7px; background-color: rgb(199, 179, 0)">
       <div class="ui segment">
         <div class="ui form">
-          <form class="field" (ngSubmit)='onSubmit()'>
-            <div class="ui segment" *ngFor="let comment of aNews.comments">
+          <form class="field" (ngSubmit) = 'onSubmit()'>
+            <div class="ui segment" *ngFor="let comment of aNews.comment">
               <div>
                 {{comment.comment}}
               </div>
             </div>
             <div>
-              <label>Email</label>
-              <input type="email" [(ngModel)]="emailInput" name="email" placeholder="email">
+              <label for="">Email</label>
+              <input type="email" name="email" placeholder="email" [(ngModel)]="emailInput">
             </div>
             <div>
-              <label>Comment</label>
+              <label for="">Comment</label>
               <textarea name="textInput" id="textInput" [(ngModel)]="textInput"></textarea>
             </div>
-            <button (click)="onSubmit()" type="submit" class="ui button" tabindex="0">Comment</button>
+            <button type="submit" class="ui button">
+              comment
+            </button>
           </form>
         </div>
       </div>

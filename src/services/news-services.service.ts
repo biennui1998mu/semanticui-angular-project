@@ -96,6 +96,14 @@ export class NewsServicesService {
       )
     }
   }
+  updateNews(formdata):Observable<JSONResponse[]>{
+    if (formdata != null){
+      return this.http.post<JSONResponse[]>(this.urlSource+"news/update",formdata).pipe(
+        tap( res => res),
+        catchError( err => of([]))
+      )
+    }
+  }
 
   constructor(
     private http:HttpClient

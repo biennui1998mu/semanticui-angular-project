@@ -1,5 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { news_contents, News } from '../../models/news';
+import { Component, OnInit } from '@angular/core';
+import { news_contents } from '../../models/news';
 import { NewsServicesService } from '../../services/news-services.service';
 
 @Component({
@@ -8,40 +8,14 @@ import { NewsServicesService } from '../../services/news-services.service';
   styleUrls: ['./updatenews.component.css']
 })
 export class UpdatenewsComponent implements OnInit {
-  @Input() aNews:News = null;
-  @Output() clickedNewsOut = new EventEmitter<News>();
-
-  
   newscontentlist:news_contents[] = [];
   title:string = '';
-  listNews:News[] = [];
-
-  add:boolean = true;
-  update:boolean = false;
-
-  clickadd(){
-    this.add = true;
-    this.update = false;
-  }
-  clickupdate(){
-    this.add = false;
-    this.update = true;
-  }
 
   constructor(
     private newsservices:NewsServicesService
   ) { }
 
   ngOnInit() {
-    this.newsservices.getAllNews().subscribe(
-      listNews => {
-        this.listNews = listNews;
-      }
-    )
-  }
-  onClick(news){
-    this.aNews = news;
-    this.clickedNewsOut.emit(news);
   }
 
   textInput:string = '';
@@ -63,6 +37,15 @@ export class UpdatenewsComponent implements OnInit {
     return false;
   }
 
+  chooseAdd(){
+    if(this.textInput.length > 1){
+      let temp:news_contents = new news_contents;
+      temp.content = this.textInput;
+      temp.img =  this.imgInput
+      this.newscontentlist.push(temp)
+    }
+  }
+
   onSubmit(){
     if (this.preparedata()){
       this.newsservices.uploadNews(this.formData).subscribe(
@@ -73,10 +56,5 @@ export class UpdatenewsComponent implements OnInit {
     }
   }
 
-  chooseEdit(){
-
-  }
-  deletenews(news){
-
-  }
 }
+
